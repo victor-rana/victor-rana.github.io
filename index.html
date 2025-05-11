@@ -2,118 +2,366 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ayush Rana | Android & Flutter Expert</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Rana | Android Developer</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
-      color: #212529;
-    }
-    header {
-      background: #343a40;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    h2 {
-      border-bottom: 2px solid #343a40;
-      padding-bottom: 0.5rem;
-    }
-    .skills, .projects, .contact {
-      margin-top: 2rem;
-    }
-    ul {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background-color: #f5f7fa;
       line-height: 1.6;
     }
-    a {
-      color: #007bff;
+
+    header {
+      background: linear-gradient(to right, #24243e, #302b63);
+      color: #fff;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
       text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    a:hover {
-      text-decoration: underline;
+
+    nav ul li a:hover {
+      color: #ffc107;
     }
-    .tag {
-      display: inline-block;
-      background: #dee2e6;
-      color: #212529;
-      padding: 0.3rem 0.6rem;
-      border-radius: 0.3rem;
-      margin: 0.2rem;
-      font-size: 0.85rem;
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #302b63;
+    }
+
+    .home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .home h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .home p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    .home img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #302b63;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .skills ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .skills li {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .services {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      padding: 40px 20px;
+    }
+
+    .services-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 30px;
+    }
+
+    .service-card {
+      background-color: #fdfdfd;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: #302b63;
+      font-size: 1.2rem;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #222;
+    }
+
+    .project-content p {
+      color: #555;
+    }
+
+    .contact form {
+      max-width: 600px;
+      margin: auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact label {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      padding: 12px;
+      border: none;
+      background: #302b63;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #24243e;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ffc107;
+      margin: 0 10px;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Ayush Rana</h1>
-    <p>Principal Android Engineer | Freelancer | 8+ yrs in Fintech & Consumer Apps</p>
+    <nav>
+      <h1>Ayush Rana</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div class="container">
+  <section id="home" class="home">
+    <h2>Hi, I'm Ayush Rana</h2>
+    <p>8+ years of experience as an Android Developer.</p>
+    <img src="images/avatar.jpg" alt="Ayush Rana">
+  </section>
 
-    <section class="about">
-      <h2>About Me</h2>
-      <p>I’m a seasoned Android developer with over 8 years of experience, currently a Principal Software Engineer at mPokket. I’ve led fintech and consumer-facing mobile projects, focusing on clean architecture, performance, and delightful UX. I also freelance, helping startups build scalable Android apps end-to-end.</p>
-    </section>
+  <section id="about" class="section about">
+    <h2 class="section-title">About Me</h2>
+    <p>I am a Principal Software Engineer with 8+ years of experience in Android Development. I’ve led mobile teams as a Tech Lead and delivered scalable fintech products using modern tools like Kotlin, Jetpack Compose, and Clean Architecture.</p>
+  </section>
 
-    <section class="skills">
-      <h2>Skills</h2>
-      <div>
-        <span class="tag">Kotlin</span>
-        <span class="tag">Jetpack Compose</span>
-        <span class="tag">MVVM / Clean Architecture</span>
-        <span class="tag">Flutter</span>
-        <span class="tag">Room</span>
-        <span class="tag">Firebase</span>
-        <span class="tag">Realtime Chat</span>
-        <span class="tag">SharedPreferences</span>
-        <span class="tag">Dependency Injection</span>
-        <span class="tag">Retrofit</span>
-        <span class="tag">Play Store Publishing</span>
+  <section id="skills" class="section skills">
+    <h2 class="section-title">Skills</h2>
+    <ul>
+      <li>Android Development</li>
+      <li>Kotlin</li>
+      <li>Jetpack Compose</li>
+      <li>MVVM Architecture</li>
+      <li>Firebase</li>
+      <li>Room Database</li>
+      <li>Retrofit</li>
+      <li>Clean Architecture</li>
+    </ul>
+  </section>
+
+  <section id="services" class="section services">
+    <h2 class="section-title">My Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Custom Android App Development</h3>
+        <p>Tailored Android apps built using Kotlin, Jetpack Compose, and modern Android architecture patterns.</p>
       </div>
-    </section>
+      <div class="service-card">
+        <h3>Real-Time Chat Integration</h3>
+        <p>Implement Firebase-based real-time chat with features like image sharing, typing indicators, and offline support.</p>
+      </div>
+      <div class="service-card">
+        <h3>Astrology App Solutions</h3>
+        <p>Fully-featured astrology apps with session booking, Jitsi integration, Firebase wallet, and admin dashboard.</p>
+      </div>
+      <div class="service-card">
+        <h3>E-Commerce Apps</h3>
+        <p>Build offline-first e-commerce solutions with MVVM, Room, and clean UI using Jetpack Compose.</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="projects">
-      <h2>Featured Projects</h2>
-      <ul>
-        <li>
-          <strong><a href="#">Astrology App</a></strong> – Realtime chat, audio/video call with astrologers, booking sessions, Firebase backend, MVVM + Compose + Room
-        </li>
-        <li>
-          <strong><a href="https://github.com/victor-rana/ecommerce-catalog">E-commerce Catalog</a></strong> – Local cart management, MVVM, Room, Kotlin, clean UI with RecyclerView & Compose
-        </li>
-        <li>
-          <strong><a href="#">Fintech Wallet App</a></strong> – Led Android team at M2P Fintech, built secure wallet flows with Razorpay, AppsFlyer & Mixpanel integrations
-        </li>
-      </ul>
-    </section>
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="images/chat-app.png" alt="Real-time Chat App" class="project-image">
+        <div class="project-content">
+          <h3>Real-time Chat App</h3>
+          <p>Built using Firebase and Jetpack Compose. Features include real-time messaging, typing indicators, offline support, and image sharing.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/astrology-app.png" alt="Astrology App" class="project-image">
+        <div class="project-content">
+          <h3>Astrology App</h3>
+          <p>Session booking for chat/video/audio with real-time messaging, wallet system, and admin analytics using Firebase and Jitsi.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/ecommerce-app.png" alt="E-Commerce App" class="project-image">
+        <div class="project-content">
+          <h3>E-Commerce Catalog</h3>
+          <p>Offline-first e-commerce app using MVVM, Room DB, and scalable Kotlin architecture. Built with Jetpack Compose.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="contact">
-      <h2>Get in Touch</h2>
-      <p>👋 Open to freelance projects — especially Android apps in fintech, edtech, or consumer space.</p>
-      <p>
-        📧 <a href="mailto:ayushrana.dev@gmail.com">ayushrana.dev@gmail.com</a><br/>
-        💼 <a href="https://github.com/victor-rana" target="_blank">GitHub</a> | <a href="https://linkedin.com/in/ayushrana" target="_blank">LinkedIn</a>
-      </p>
-    </section>
+  <section id="contact" class="section contact">
+    <h2 class="section-title">Contact</h2>
+    <form>
+      <label for="name">Name</label>
+      <input id="name" type="text" placeholder="Your name" required>
 
-  </div>
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com" required>
 
+      <label for="subject">Subject</label>
+      <input id="subject" type="text" placeholder="Subject">
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message here..."></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Connect with me: 
+      <a href="https://github.com/ayushrana0907" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/ayushrana0907" target="_blank">LinkedIn</a>
+    </p>
+    <p>&copy; 2025 Ayush Rana. All rights reserved.</p>
+  </footer>
 </body>
 </html>
